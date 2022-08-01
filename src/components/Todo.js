@@ -16,9 +16,6 @@ const Todo = (props) => {
                 <button className='btn btn-outline-danger m-1' onClick={props.onDelete}>
                     <RiDeleteBack2Line />
                 </button>
-                <button className='btn btn-outline-primary m-1'>
-                    <FiEdit />
-                </button>
             </div>
         </li>
     )
