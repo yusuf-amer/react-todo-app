@@ -18,9 +18,9 @@ npm run build
 ```
 
 ##  What was used
-- [] [Bootstrap](https://getbootstrap.com/docs/5.2/getting-started/introduction/)      =>  To make a responsive  design using Bootstrap Features
-- [] [React-Icons](https://react-icons.github.io/react-icons)    =>  To add elegent icons to my design
-- [] [useState](https://reactjs.org/docs/hooks-reference.html#usestate)       =>  To store and save task data
+- [ ] [Bootstrap](https://getbootstrap.com/docs/5.2/getting-started/introduction/)      =>  To make a responsive  design using Bootstrap Features
+- [ ] [React-Icons](https://react-icons.github.io/react-icons)    =>  To add elegent icons to my design
+- [ ] [useState](https://reactjs.org/docs/hooks-reference.html#usestate)       =>  To store and save task data
 
 ```bash
 # [] Bootsrap
