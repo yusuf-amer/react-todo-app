@@ -8,11 +8,11 @@ const Todo = (props) => {
 
     return (
         <li className="list-group-item row d-flex align-items-center" id={props.todo.id}>
-            <div className='col-9 d-inline-block'>
+            <div className='col-10 d-inline-block'>
                 {props.todo.text}
             </div>
             
-            <div className='actions col-2 d-inline-block text-end justify-content-evenly d-flex p-0'>
+            <div className='actions col-1 d-inline-block text-end justify-content-evenly d-flex p-0'>
                 <button className='btn btn-outline-danger m-1' onClick={props.onDelete}>
                     <RiDeleteBack2Line />
                 </button>
