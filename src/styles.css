@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.App {
+    font-family: sans-serif;
+}
+
+.todoList {
+    overflow-y: scroll;
+    max-height: 500px;
+    scrollbar-color: rgb(46, 139, 216) rgb(163, 203, 236);
+    scrollbar-width: thin;
+}
+
+.list-group-item {
+    cursor: pointer;
+}
+
+.list-group-item:nth-of-type(even) {
+    background-color: #d9e8ff;
+}
+
+#completed {
+    text-decoration: line-through;
+    color: gray;
+}

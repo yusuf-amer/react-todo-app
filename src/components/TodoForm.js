@@ -1,62 +1,73 @@
-import React, { useState } from "react";
-import { MdAddTask } from "react-icons/md";
-
+import React, { Fragment, useState } from "react";
 import shortid from "shortid";
+import { MdAddTask } from "react-icons/md";
+import { GiCheckMark } from "react-icons/gi";
 
-const TodoForm = (props) => {
-    const [text, setText] = useState("");
+const Form = (props) => {
+    const [inputVal, setInputVal] = useState(props.edit ? props.edit.value : "");
 
-    function preventDefaults(e) {
+    const submitHandler = (e) => {
         e.preventDefault();
-        if (!/^\s*$/.test(text)) {
+
+        if (!/^\s*$/.test(inputVal)) {
             props.onSubmit({
                 id: shortid.generate(),
-                text: text,
-                completed: false,
+                text: inputVal,
+                completed: false
             });
-            setText("");
+            setInputVal("");
         }
-    }
+    };
 
-    function handleChange(e) {
-        setText(e.target.value);
-    }
+    const featchData = (e) => {
+        setInputVal(e.target.value);
+    };
 
     return (
-        <div className="container">
-            <div className="row justify-content-center">
-                <form
-                    className="col-12 col-md-6 p-3 container  p-3 shadow-lg rounded"
-                    onSubmit={preventDefaults}
-                >
-                    <h1 className="text-center text-primary text-uppercase">
-                        {" "}
-                        <span className="fw-bold">Todo</span> APP
-                    </h1>
-                    <hr className="border border-primary border-3 opacity-75" />
-
-                    <div className="row justify-content-evenly">
-                        <div className="col-8 p-0">
+        <Fragment>
+            <form className="row justify-content-evenly" style={props.edit ? {padding: '1rem'} : {padding: 'unset'}}>
+                {props.edit ? (
+                    <Fragment>
+                        <div className="col-8">
                             <input
                                 type="text"
-                                className="form-control border-primary taskInput text-primary"
-                                onChange={handleChange}
-                                value={text}
-                                placeholder="type your task..."
+                                className="col-auto form-control border-primary"
+                                onChange={featchData}
+                                value={inputVal}
                                 autoFocus
                             />
                         </div>
                         <button
-                            className="btn btn-outline-primary col-2"
-                            onClick={preventDefaults}
+                            type="submit"
+                            className="btn btn-outline-primary col-auto"
+                            onClick={submitHandler}
+                        >
+                            <GiCheckMark />
+                        </button>
+                    </Fragment>
+                ) : (
+                    <Fragment>
+                        <div className="col-8">
+                            <input
+                                type="text"
+                                className="col-auto form-control border-primary"
+                                onChange={featchData}
+                                value={inputVal}
+                                autoFocus
+                            />
+                        </div>
+                        <button
+                            type="submit"
+                            className="btn btn-outline-primary col-auto"
+                            onClick={submitHandler}
                         >
                             <MdAddTask />
                         </button>
-                    </div>
-                </form>
-            </div>
-        </div>
+                    </Fragment>
+                )}
+            </form>
+        </Fragment>
     );
 };
 
-export default TodoForm;
+export default Form;
